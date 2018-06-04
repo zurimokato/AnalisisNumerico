@@ -19,6 +19,7 @@ public class NewtonRapson {
         x[0] = aprox_i;
 
     }
+   
 
    public double f(double x) {
         double fx;
