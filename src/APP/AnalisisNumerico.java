@@ -6,6 +6,8 @@
 package APP;
 
 import Logica.NewtonRapson;
+import Vista.BisecWindows;
+import java.awt.EventQueue;
 import java.util.Scanner;
 
 /**
@@ -18,8 +20,9 @@ public class AnalisisNumerico {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-         double r;
-        NewtonRapson n1=null;
+        double r;
+        NewtonRapson n1;
+        n1 = null;
         Scanner lee=new Scanner(System.in);
         System.out.println("Introduce un valor para x_0=>");
         double x=lee.nextDouble();
@@ -29,6 +32,17 @@ public class AnalisisNumerico {
         r = n1.calcRaiz();
         System.out.println("Raiz="+r);
         
+        
+        EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					BisecWindows frame = new BisecWindows();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
     }
     
 }
