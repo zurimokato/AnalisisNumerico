@@ -23,7 +23,7 @@ public class Biseccion {
 
     }
 
-    public void iteraciones(int iteraciones,Registro regs,DefaultTableModel model) {
+    public void iteraciones(int iteraciones,RegistroBisec regs,DefaultTableModel model) {
 		double valory = 0;
 		model.setNumRows(0);
 		for(int i = 0;i < iteraciones;i++) {			
@@ -66,7 +66,7 @@ public class Biseccion {
 
    
 
-     public void errResult(double err,Registro regs,DefaultTableModel model) {
+     public void errResult(double err,RegistroBisec regs,DefaultTableModel model) {
 		model.setNumRows(0);
 		double valory = 0;
 		int i = 0;
@@ -90,7 +90,7 @@ public class Biseccion {
 		}while(err < errorel);				
 	}
 
-    public void funResult(double result,Registro regs,DefaultTableModel model) {
+    public void funResult(double result,RegistroBisec regs,DefaultTableModel model) {
 		model.setNumRows(0);
 		double valory = 0;
 		int i = 0;

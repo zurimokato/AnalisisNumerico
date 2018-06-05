@@ -9,11 +9,11 @@ package Logica;
  *
  * @author Ingenieros
  */
-public class Registro {
+public class RegistroBisec {
 
     private double limiteMenor, limiteMayor, biseccion, errAbsol, errRel;
 
-    int iterations = 0;
+    private int iterations = 0;
 
     public int getIterations() {
         return iterations;
@@ -23,7 +23,7 @@ public class Registro {
         this.iterations = iterations;
     }
 
-    public Registro() {
+    public RegistroBisec() {
     }
 
     public double getBiseccion() {

@@ -63,18 +63,26 @@ public class VistaPrincipal extends JFrame {
         newtonRapson.setText("Newton Rapson"); 
         setpanel.add(newtonRapson);
         newtonRapson.setBounds(215, 220, 159, 37);
+        newtonRapson.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                NewtonRaphsonVista mew=new NewtonRaphsonVista();
+                mew.setVisible(true);
+            }
+        });
 
         //---- button3 ----
         secante.setText("Secante"); 
         setpanel.add(secante);
         secante.setBounds(405, 220, 159, 37);
+        
+        secante.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+               SecanteVista sec= new SecanteVista();
+               sec.setVisible(true);
+            }
+        });
 
-        //---- button4 ----
-        puntoFijo.setText("Punto fijo");
-        setpanel.add(puntoFijo);
-        puntoFijo.setBounds(595, 220, 159, 37);
-        
-        
+       
         
 
     }

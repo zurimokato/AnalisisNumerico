@@ -5,7 +5,7 @@
  */
 package APP;
 
-import Logica.NewtonRapson;
+import Logica.NewtonRaphson;
 import Vista.BisecWindows;
 import Vista.VistaPrincipal;
 import java.awt.EventQueue;
