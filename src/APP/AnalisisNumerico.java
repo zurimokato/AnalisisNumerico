@@ -7,6 +7,7 @@ package APP;
 
 import Logica.NewtonRapson;
 import Vista.BisecWindows;
+import Vista.VistaPrincipal;
 import java.awt.EventQueue;
 import java.util.Scanner;
 
@@ -23,8 +24,10 @@ public class AnalisisNumerico {
         EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					BisecWindows frame = new BisecWindows();
-					frame.setVisible(true);
+					//BisecWindows frame = new BisecWindows();
+                                        VistaPrincipal vista =new VistaPrincipal();
+					//frame.setVisible(true);
+                                        vista.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

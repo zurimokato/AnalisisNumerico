@@ -59,9 +59,7 @@ public class Biseccion {
         
         int numI=0;
         
-        numI= (int) (decCorrect/ (Math.log(2)/Math.log(10)));
-        System.out.println(decCorrect);
-        System.out.println(numI);
+        numI= (int) Math.ceil((decCorrect/ (Math.log(2)/Math.log(10))));
         return numI;
         
     }

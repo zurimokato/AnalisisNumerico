@@ -38,7 +38,7 @@ public class BisecWindows extends JFrame {
     public BisecWindows() {
 
         setTitle("Biseccion");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         getContentPane().setLayout(null);
         setResizable(false);
         setBounds(50, 50, 800, 400);
@@ -102,8 +102,6 @@ public class BisecWindows extends JFrame {
         randomizer2.setBounds(133, 106, 22, 23);
         setpanel.add(randomizer2);
 
-       
-
         final JLabel lbl_parameter = new JLabel("Num iteraciones");
         lbl_parameter.setVisible(false);
         lbl_parameter.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
@@ -136,7 +134,7 @@ public class BisecWindows extends JFrame {
         });
         sl_relerr.setBounds(14, 153, 109, 23);
         setpanel.add(sl_relerr);
-        
+
         JRadioButton sl_dec = new JRadioButton("Decimales correctos");
         sl_dec.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
         sl_dec.addActionListener(new ActionListener() {
@@ -154,7 +152,7 @@ public class BisecWindows extends JFrame {
         select.add(sl_iterations);
         select.add(sl_relerr);
         select.add(sl_dec);
-        
+
         JButton btnStart = new JButton("Calcular");
         btnStart.setBounds(43, 313, 89, 23);
         getContentPane().add(btnStart);
@@ -178,43 +176,57 @@ public class BisecWindows extends JFrame {
         final Registro regs = new Registro();
         btnStart.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                if (exp.getText().length() == 0 || limit1.getText().length() == 0
+                        || limit2.getText().length() == 0) {
+                    JOptionPane.showMessageDialog(null, "No puedes dejar los campos vacios");
 
-                s = exp.getText();
-                limite1 = Float.parseFloat(limit1.getText());
-                limite2 = Float.parseFloat(limit2.getText());
-                funcion = new Funcion(s);
-                final Biseccion bisec = new Biseccion(funcion);
-
-                System.out.println(limite1);
-
-                if (limite1 < limite2) {
-                    regs.setLimiteMenor(limite1);
-                    regs.setLimiteMayor(limite2);
                 } else {
-                    regs.setLimiteMayor(limite1);
-                    regs.setLimiteMenor(limite2);
+                    s = exp.getText();
+                    limite1 = Float.parseFloat(limit1.getText());
+                    limite2 = Float.parseFloat(limit2.getText());
+                    funcion = new Funcion(s);
+                    final Biseccion bisec = new Biseccion(funcion);
+
+                    if (limite1 < limite2) {
+                        regs.setLimiteMenor(limite1);
+                        regs.setLimiteMayor(limite2);
+                    } else {
+                        regs.setLimiteMayor(limite1);
+                        regs.setLimiteMenor(limite2);
+                    }
+                    
+                    if(txt_parameter.getText().length()==0){
+                            JOptionPane.showMessageDialog(null, "No puedes dejar los campos vacios");
+                    }else{
+                        switch (seleccion) {
+                            case 1:
+
+                                int iter = Integer.parseInt(txt_parameter.getText());
+                                bisec.iteraciones(iter, regs, model);
+                                break;
+                            case 2:
+
+                                double errRel = Double.parseDouble(txt_parameter.getText());
+                                bisec.errResult(errRel, regs, model);
+                                break;
+                            case 3:
+                                double dec = Integer.parseInt(txt_parameter.getText());
+
+                                int numI = bisec.numIteraciones(dec);
+                                JOptionPane.showMessageDialog(null, "Numero de iteraciones ideal: " + numI);
+                                //bisec.funResult(res, regs, model);
+                                break;
+                        }
+
+                    }
+
+                    
+
                 }
 
-                switch (seleccion) {
-                    case 1:
-
-                        int iter = Integer.parseInt(txt_parameter.getText());
-                        bisec.iteraciones(iter, regs, model);
-                        break;
-                    case 2:
-                        double errRel = Double.parseDouble(txt_parameter.getText());
-                        bisec.errResult(errRel, regs, model);
-                        break;
-                    case 3:
-                        double dec = Integer.parseInt(txt_parameter.getText());
-                        
-                        int numI=bisec.numIteraciones(dec);
-                        //bisec.funResult(res, regs, model);
-                        break;
-
-                }
             }
         });
+
     }
 
 }
