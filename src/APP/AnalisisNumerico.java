@@ -20,19 +20,6 @@ public class AnalisisNumerico {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        double r;
-        NewtonRapson n1;
-        n1 = null;
-        Scanner lee=new Scanner(System.in);
-        System.out.println("Introduce un valor para x_0=>");
-        double x=lee.nextDouble();
-        
-        n1 = new NewtonRapson(x);
-       
-        r = n1.calcRaiz();
-        System.out.println("Raiz="+r);
-        
-        
         EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {

@@ -1,6 +1,7 @@
 
 package Logica;
 
+import javax.swing.JOptionPane;
 import org.nfunk.jep.JEP;
 
 /**
@@ -14,6 +15,8 @@ public class Funcion {
         j.addVariable("x", 0);
         j.parseExpression(exp);
         if(j.hasError()){
+            JOptionPane.showMessageDialog(null, j.getErrorInfo());
+    
             System.out.println(j.getErrorInfo());
         }
         j.addStandardConstants();
