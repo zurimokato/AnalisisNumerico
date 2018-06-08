@@ -20,14 +20,17 @@ public class Funcion {
     public Funcion(String exp){
         this.exp=exp;
         j.addVariable("x", 0);
-        j.parseExpression(exp);
+        j.addStandardConstants();
+        j.addStandardFunctions();
+        j.addComplex();
+         j.parseExpression(exp);
         if(j.hasError()){
             JOptionPane.showMessageDialog(null, j.getErrorInfo());
     
             System.out.println(j.getErrorInfo());
         }
-        j.addStandardConstants();
-        j.addStandardFunctions();
+        
+        
         
     }
     
