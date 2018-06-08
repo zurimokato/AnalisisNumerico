@@ -14,7 +14,6 @@ import javax.swing.table.DefaultTableModel;
  */
 public class NewtonRaphson {
     private int i = 0;
-    private double x[] = new double[50];
     private double e = 10;
     private ArrayList<Double> t=new ArrayList<>();
     private Funcion fun;
@@ -62,7 +61,7 @@ public class NewtonRaphson {
     }
     
      public void calcRaiz(DefaultTableModel model, double  err) {
-        i = 1;
+        i = 0;
         model.setNumRows(0);
         double next;
         while (e >err ) {
